@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Urban Spice | Restaurant Demo</title>
+<meta name="description" content="Urban Spice - Modern restaurant website demo by Sahil Kokode.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+:root{
+  --bg:#120d0a;
+  --card:#1d1510;
+  --text:#fff8ef;
+  --muted:#b9a99a;
+  --accent:#ff9f43;
+  --accent2:#ffd166;
+  --border:#34251c;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(18,13,10,.95);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--muted);
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+/* HERO */
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+  radial-gradient(circle at 50% 30%,#3a2110 0%,transparent 45%);
+}
+
+.hero-content{
+  width:100%;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  border-radius:50px;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(45px,8vw,78px);
+  line-height:1.05;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:var(--accent);
+}
+
+.hero p{
+  max-width:650px;
+  margin:0 auto 30px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:13px 23px;
+  border-radius:10px;
+  font-weight:bold;
+  display:inline-block;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#1b1007;
+}
+
+.btn-secondary{
+  border:1px solid var(--border);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* SECTIONS */
+section{
+  padding:85px 0;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title h2{
+  font-size:38px;
+}
+
+.title p{
+  color:var(--muted);
+}
+
+/* ABOUT */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+/* MENU */
+.menu{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.food{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.food:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+
+.food-img{
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:65px;
+  background:linear-gradient(135deg,#342014,#1a100b);
+}
+
+.food-body{
+  padding:22px;
+}
+
+.food-body h3{
+  margin-bottom:5px;
+}
+
+.food-body p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.price{
+  color:var(--accent);
+  font-weight:bold;
+  font-size:20px;
+  margin-top:12px;
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.feature{
+  text-align:center;
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+.icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.feature p{
+  color:var(--muted);
+}
+
+/* CTA */
+.cta{
+  text-align:center;
+  background:linear-gradient(135deg,#28170d,#160e09);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:60px 25px;
+}
+
+.cta h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.cta p{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+  padding:25px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .about,
+  .menu,
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:65px 0;
+  }
+
+  .hero{
+    min-height:80vh;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav">
+
+    <a href="#" class="logo">
+      Urban<span>Spice</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#features">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="container hero-content">
+
+    <div class="badge">🍽️ Restaurant Website Demo</div>
+
+    <h1>
+      Taste That<br>
+      <span>Brings People Together.</span>
+    </h1>
+
+    <p>
+      Fresh ingredients, delicious recipes and a warm
+      atmosphere. Welcome to Urban Spice.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#menu" class="btn btn-primary">
+        Explore Menu
+      </a>
+
+      <a
+        href="https://wa.me/919405479665?text=Hi%2C%20I%20want%20a%20restaurant%20website."
+        target="_blank"
+        class="btn btn-secondary">
+        Book a Table
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>Our Story</h2>
+      <p>A simple demo for a modern restaurant.</p>
+    </div>
+
+    <div class="about">
+
+      <div class="card">
+        <h3>Made With Passion ❤️</h3>
+        <br>
+        <p>
+          Urban Spice brings together traditional flavours
+          and modern presentation to create memorable meals.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Fresh Every Day 🌿</h3>
+        <br>
+        <p>
+          We believe great food starts with quality ingredients,
+          careful preparation and a little passion.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="menu">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>Popular Menu</h2>
+      <p>Our customer favourites.</p>
+    </div>
+
+    <div class="menu">
+
+      <div class="food">
+        <div class="food-img">🍕</div>
+        <div class="food-body">
+          <h3>Classic Pizza</h3>
+          <p>Fresh vegetables, cheese and our signature sauce.</p>
+          <div class="price">₹249</div>
+        </div>
+      </div>
+
+      <div class="food">
+        <div class="food-img">🍔</div>
+        <div class="food-body">
+          <h3>Urban Burger</h3>
+          <p>Juicy patty, fresh vegetables and special sauce.</p>
+          <div class="price">₹199</div>
+        </div>
+      </div>
+
+      <div class="food">
+        <div class="food-img">🍝</div>
+        <div class="food-body">
+          <h3>Creamy Pasta</h3>
+          <p>Rich creamy sauce with herbs and parmesan.</p>
+          <div class="price">₹229</div>
+        </div>
+      </div>
+
+      <div class="food">
+        <div class="food-img">🥗</div>
+        <div class="food-body">
+          <h3>Fresh Salad</h3>
+          <p>Crispy vegetables with a refreshing dressing.</p>
+          <div class="price">₹149</div>
+        </div>
+      </div>
+
+      <div class="food">
+        <div class="food-img">🍛</div>
+        <div class="food-body">
+          <h3>Special Thali</h3>
+          <p>A delicious combination of Indian favourites.</p>
+          <div class="price">₹299</div>
+        </div>
+      </div>
+
+      <div class="food">
+        <div class="food-img">🍰</div>
+        <div class="food-body">
+          <h3>Chocolate Cake</h3>
+          <p>Soft chocolate cake with creamy frosting.</p>
+          <div class="price">₹129</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="features">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>Why Choose Us?</h2>
+      <p>Everything your customers need.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="icon">🥬</div>
+        <h3>Fresh Ingredients</h3>
+        <p>Quality ingredients prepared fresh.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h3>Fast Service</h3>
+        <p>Quick service without compromising quality.</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">❤️</div>
+        <h3>Made With Love</h3>
+        <p>Every dish is prepared with care.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>Hungry Yet? 🍴</h2>
+
+      <p>
+        Visit us today or contact us for reservations.
+      </p>
+
+      <a
+        href="https://wa.me/919405479665?text=Hi%2C%20I%20want%20to%20book%20a%20table."
+        target="_blank"
+        class="btn btn-primary">
+        Contact Us
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Urban Spice · Restaurant Demo by Sahil Kokode
+</footer>
+
+</body>
+</html>
+```
+
